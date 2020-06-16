@@ -1,0 +1,8 @@
+<h1 style="margin-top: 60px; margin-left: 20px;">Buscando: {{termino}} </h1>
+<div class="row">
+  <app-item-instrumento (instrumentoSeleccionado)="verInstrumento($event)" 
+  *ngFor="let instruAux of instrumentoBusqueda; let i = index" [instruAux]="instruAux" 
+  [index]="instruAux.id"> 
+  </app-item-instrumento> 
+</div>
+

@@ -1,0 +1,30 @@
+<div class="container, animated fadeIn, col-md-12" style="margin-top: 70px; ">
+  <button mdbBtn type="button" style="margin-left: 20px;" color="primary" class="waves-light" data-toggle= "modal" data-target="#modalInstrumento" mdbWavesEffect>Nuevo producto</button>
+  <table mdbTable bordered="true" >
+      <thead>
+        <tr>
+          <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr mdbTableCol *ngFor="let instruAux of instrumentoArray; let i = index">
+          <th scope="row">{{instruAux.id}}</th>
+          <td>{{instruAux.instrumento}}</td>
+          <td>{{instruAux.marca}}</td>
+          <td>{{instruAux.modelo}}</td>
+          <td>{{instruAux.precio}}</td>
+          <td>{{instruAux.imagen}}</td>
+          <td>{{instruAux.costoEnvio}}</td>
+          <td>{{instruAux.cantidadVendida}}</td>
+          <td>{{instruAux.descripcion}}</td>
+          <td>
+            <div class="btn-group" role="group" aria-label="Basic example">
+              <button mdbBtn type="button" style="margin-right: 10px;" color="primary" class="waves-light" data-toggle="modal" data-target="#modalInstrumento" (click)="onPreUpdateInstrumento(instruAux)" mdbWavesEffect>Modificar</button>
+              <button mdbBtn type="button" color="danger" class="waves-light" (click)="onDeleteInstrumento(instruAux)" mdbWavesEffect>Eliminar</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+  </table> 
+</div>
+<app-modal [instrumentoActual]="instrumentoActual"></app-modal>

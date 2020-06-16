@@ -1,0 +1,9 @@
+<div class="container, animated fadeIn, col-md-12" style="margin-top: 70px; ">
+  <div class="row">
+    <app-item-instrumento (instrumentoSeleccionado)="verInstrumento($event)" 
+    *ngFor="let instruAux of instrumentoArray; let i = index" [instruAux]="instruAux" 
+    [index]="instruAux.id"> 
+    </app-item-instrumento>
+  </div>
+</div>
+  

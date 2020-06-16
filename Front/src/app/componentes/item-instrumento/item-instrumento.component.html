@@ -1,0 +1,28 @@
+<div class="card" style="margin-left: auto; width: 600px; height: 205px;margin-bottom: 20px;margin-right: auto;">
+    <div class="row no-gutters">
+        <div class="col-auto">
+            <button mdbBtn type="button" color="default" outline="true" (click)="verInstrumento()" mdbWavesEffect style="max-height: 200px;">
+                <img class="card-img-top" src="http://localhost:9001/api/v1/instrumentos/getImage/{{instruAux.imagen}}" alt="image"
+                style="min-height:100px; max-height:180px">
+            </button>
+        </div>
+        <div class="col">
+            <div class="card-block px-2" style="text-align: left">
+                <h4 class="card-title">{{instruAux.instrumento}}</h4>
+                <h1 class="card-text" style="text-align: left">
+                    $ {{ instruAux.precio }}
+                </h1>
+  
+                <p class="card-text" style="text-align: left">
+                    <mdb-icon fas icon="truck" style="color:green" *ngIf="instruAux.costoEnvio == 'G'"></mdb-icon>
+                    <span style="color:green" *ngIf="instruAux.costoEnvio == 'G'"> Envió gratis a todo el país</span>
+                    <span style="color:orange" *ngIf="instruAux.costoEnvio != 'G'">Costo de Envio Interior de Argentina ${{instruAux.costoEnvio}}</span>
+                </p>
+              
+                <p class="card-text" style="text-align: left">
+                    {{ instruAux.cantidadVendida }} vendidos
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+<h1 style="margin-top: 10px; margin-left: 10px;">{{instrumento.instrumento | uppercase}}</h1>
+<hr>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6" style="text-align: center">
+      <img src="http://localhost:9001/api/v1/instrumentos/getImage/{{instrumento.imagen}}" style="min-width: 250px; max-width: 300px;"  class="img-fluid" [alt]="instrumento">
+      <br><br>
+      <a [routerLink]="['/productos']" class="btn btn-outline-danger btn-block">Regresar</a> 
+    </div>
+    <div class="col-md-6">
+      <p class="col-sm-12">{{instrumento.cantidadVendida}} vendidos</p>
+
+      <p class="col-sm-12 h4">{{instrumento.instrumento}}</p>
+      <br>
+      <p class="col-sm-12 display-4">${{instrumento.precio}}</p>
+      <br>
+      <p class="col-sm-12">Marca: {{instrumento.marca}}</p>
+      <p class="col-sm-12" style="margin-top: -15px;">Modelo: {{instrumento.modelo}}</p>
+      
+      <p class="col-sm-12">Costo Envio:</p>
+      <p class="col-sm-12"style="margin-top: -10px;">
+        <mdb-icon fas icon="truck" style="color:green" *ngIf="instrumento.costoEnvio == 'G'"></mdb-icon>
+        <span style="color:green" *ngIf="instrumento.costoEnvio == 'G'"> Envió gratis a todo el país</span>
+        <span style="color:orange" *ngIf="instrumento.costoEnvio != 'G'">Costo de Envio Interior de Argentina ${{instrumento.costoEnvio}}</span>
+      </p>  
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8" style="text-align: center">
+      <dt class="col-sm-3">Descripcion:</dt>
+      <dd class="col-sm-9">{{instrumento.descripcion}}</dd>
+    </div>
+    <div class="col-md-4" style="margin-top: 40px;">
+      <button mdbBtn type="button" color="primary" outline="true" mdbWavesEffect>Agregar al carrito</button>
+    </div>
+  </div>
+</div>
